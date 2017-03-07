@@ -6,17 +6,17 @@ module.exports.config = {
     onPrepare:() => {
         let Jasmine2Reporter = require('jasmine2-reporter').Jasmine2Reporter
         jasmine.getEnv().addReporter(new Jasmine2Reporter());
-    },
 
+        beforeEach( () => {
+        //Here will be preconditions, like a launching browser before each test case starts
+            browser.get('')        
+        })
 
-    beforeEach:() => {
-        
-    },
-
-    afterEach:() => {
-        browser.get('/')
-        browser.executeScript('window.sessionStorage.clear();')
-        browser.executeScript('window.localStorage.clear();')
-        browser.manage().deleteAllCookies()
-    },
+        afterEach( () => {
+            browser.get('/')
+            browser.executeScript('window.sessionStorage.clear();')
+            browser.executeScript('window.localStorage.clear();')
+            browser.manage().deleteAllCookies()
+        })
+    },    
 }

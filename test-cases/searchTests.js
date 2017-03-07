@@ -2,7 +2,7 @@ describe('Search Field Tests', ()=> {
 
     let searchField = $('[name = "searchStr"]')
     let movieNameSearch = 'star wars'
-    let searchMovieByGenre = 'Horror'
+    let searchMovieByGenre = 'horror'
     let movieYearSearch = '2015'
     let searchMovieByActor = 'brad pitt'
     let inputMisspelled = 'pirrates'
@@ -12,8 +12,8 @@ describe('Search Field Tests', ()=> {
     let upperCaseInputSearch = "JAWS"
     let specialSymbolsInput = '%?>@#<*+-='
     
-    xit('by movie Name', ()=> {
-        browser.get('')
+    it('by movie Name', ()=> {
+        // browser.get('')
                 
         searchField.sendKeys(movieNameSearch)
         element(by.buttonText('Go!')).click()
@@ -24,7 +24,7 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by movie Year', ()=> {
-        browser.get('')
+        // browser.get('')
 
         searchField.sendKeys(movieYearSearch)
         element(by.buttonText('Go!')).click()
@@ -34,8 +34,8 @@ describe('Search Field Tests', ()=> {
         expect(year).toContain(movieYearSearch, 'Does not find movie of such year')
     })
 
-     it('by Genre', ()=> {
-        browser.get('')
+     xit('by Genre', ()=> {
+        // browser.get('')
 
         searchField.sendKeys(searchMovieByGenre)
         element(by.buttonText('Go!')).click()
@@ -44,14 +44,14 @@ describe('Search Field Tests', ()=> {
         $$('movie-card').first().element(by.linkText('View details »')).click()
         browser.sleep(2000)
         
-        let genre = $$('.col-md-8').first().$('p > a')
-
-        expect(element(by.linkText(searchMovieByGenre)).getTagName()).toBe('a', 'This movie is not a horror genre')
-        
+        let genre = $('.label-info[href$="Horror"]').getText().then(text => text.toLowerCase())
+                 
+        expect(genre).toContain(searchMovieByGenre, 'This movie is not a horror')
+            
     })  
 
      xit('by actor name', ()=> {
-        browser.get('')
+        // browser.get('')
 
         searchField.sendKeys(searchMovieByActor)
         element(by.buttonText('Go!')).click()
@@ -70,7 +70,7 @@ describe('Search Field Tests', ()=> {
     })
     
     xit('by input misspelled', ()=> {
-        browser.get('')
+        // browser.get('')
         
         searchField.sendKeys(inputMisspelled)
         element(by.buttonText('Go!')).click()
@@ -82,7 +82,7 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by cyrillic input', ()=> {
-        browser.get('')
+        // browser.get('')
         
         searchField.sendKeys(cyrillicInputSearch)
         element(by.buttonText('Go!')).click()
@@ -93,7 +93,7 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by random input', ()=> {
-        browser.get('')
+        // browser.get('')
                 
         searchField.sendKeys(randomInputSearch)
         element(by.buttonText('Go!')).click()
@@ -113,7 +113,7 @@ describe('Search Field Tests', ()=> {
     }) 
 
     xit('by empty input', ()=> {
-        browser.get('')
+        // browser.get('')
                 
         searchField.sendKeys(emptyInput)
         element(by.buttonText('Go!')).click()
@@ -133,7 +133,7 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by special symbols input', ()=> {
-        browser.get('')
+        // browser.get('')
                 
         searchField.sendKeys(specialSymbolsInput)
         element(by.buttonText('Go!')).click()
@@ -153,7 +153,7 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by uppercase input', ()=> {
-        browser.get('')
+        // browser.get('')
                 
         searchField.sendKeys(upperCaseInputSearch)
         element(by.buttonText('Go!')).click()
