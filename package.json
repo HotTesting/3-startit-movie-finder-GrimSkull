@@ -2,7 +2,7 @@
   "name": "startit-movie-finder",
   "version": "0.0.1",
   "private": true,
-  "description": "Igor Karpov's tests for 'https://movies-finder.firebaseapp.com'. Feburary-March 2017",
+  "description": "Test Cases for 'https://movies-finder.firebaseapp.com'. Feburary-March 2017",
   "scripts": {
     "postinstall": "webdriver-manager update",
     "test": "protractor"
