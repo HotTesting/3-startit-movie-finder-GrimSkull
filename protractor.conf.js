@@ -18,5 +18,7 @@ module.exports.config = {
             browser.executeScript('window.localStorage.clear();')
             browser.manage().deleteAllCookies()
         })
+
+        global.EC = protractor.ExpectedConditions;
     },    
 }

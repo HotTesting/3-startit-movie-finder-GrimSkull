@@ -13,18 +13,17 @@ describe('Search Field Tests', ()=> {
     let specialSymbolsInput = '%?>@#<*+-='
     
     it('by movie Name', ()=> {
-        // browser.get('')
                 
         searchField.sendKeys(movieNameSearch)
         element(by.buttonText('Go!')).click()
-        browser.sleep(5000)
+        //Need validation of upper or lower case input
+        browser.wait(EC.presenceOf($('movie-card')), 5000, "First search result should be present after searching")
 
         let title = $$('movie-card').first().$('h4 a').getText().then(text => text.toLowerCase())
         expect(title).toContain(movieNameSearch, 'Movie name does not found')
     })
 
     xit('by movie Year', ()=> {
-        // browser.get('')
 
         searchField.sendKeys(movieYearSearch)
         element(by.buttonText('Go!')).click()
@@ -35,7 +34,6 @@ describe('Search Field Tests', ()=> {
     })
 
      xit('by Genre', ()=> {
-        // browser.get('')
 
         searchField.sendKeys(searchMovieByGenre)
         element(by.buttonText('Go!')).click()
@@ -51,7 +49,6 @@ describe('Search Field Tests', ()=> {
     })  
 
      xit('by actor name', ()=> {
-        // browser.get('')
 
         searchField.sendKeys(searchMovieByActor)
         element(by.buttonText('Go!')).click()
@@ -70,7 +67,6 @@ describe('Search Field Tests', ()=> {
     })
     
     xit('by input misspelled', ()=> {
-        // browser.get('')
         
         searchField.sendKeys(inputMisspelled)
         element(by.buttonText('Go!')).click()
@@ -82,7 +78,6 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by cyrillic input', ()=> {
-        // browser.get('')
         
         searchField.sendKeys(cyrillicInputSearch)
         element(by.buttonText('Go!')).click()
@@ -93,7 +88,6 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by random input', ()=> {
-        // browser.get('')
                 
         searchField.sendKeys(randomInputSearch)
         element(by.buttonText('Go!')).click()
@@ -113,7 +107,6 @@ describe('Search Field Tests', ()=> {
     }) 
 
     xit('by empty input', ()=> {
-        // browser.get('')
                 
         searchField.sendKeys(emptyInput)
         element(by.buttonText('Go!')).click()
@@ -133,7 +126,6 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by special symbols input', ()=> {
-        // browser.get('')
                 
         searchField.sendKeys(specialSymbolsInput)
         element(by.buttonText('Go!')).click()
@@ -153,7 +145,6 @@ describe('Search Field Tests', ()=> {
     })
 
     xit('by uppercase input', ()=> {
-        // browser.get('')
                 
         searchField.sendKeys(upperCaseInputSearch)
         element(by.buttonText('Go!')).click()
